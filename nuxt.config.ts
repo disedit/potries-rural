@@ -16,7 +16,6 @@ export default defineNuxtConfig({
 
   modules: [
     ['@storyblok/nuxt', { accessToken: process.env.STORYBLOK_TOKEN }],
-    '@nuxt/hints',
     '@nuxt/image'
   ],
 

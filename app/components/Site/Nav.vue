@@ -13,9 +13,9 @@
     <NuxtLink to="/">
       <SiteLogo class="h-12" />
     </NuxtLink>
-    <NavCta class="ms-auto">
+    <SiteNavCta class="ms-auto">
       CTA
-    </NavCta>
+    </SiteNavCta>
     <SiteLanguages />
   </nav>
   <SiteMenu :open="menuOpen" @close="hideMenu" />

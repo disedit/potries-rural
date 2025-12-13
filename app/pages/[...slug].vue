@@ -10,12 +10,9 @@ const { slug } = useRoute().params
 if (slug && slug.length > 0 && languages.includes(slug[0])) {
   slug.shift()
 }
+const path = slug && slug.length > 0 && slug[0] ? slug.join('/') : 'home'
 const version = useEnvironment()
-const { story } = await useAsyncStoryblok(
-  slug && slug.length > 0 ? slug.join('/') : 'home',
-  { api: { version } }
-)
-console.log(story.value)
+const { story } = await useAsyncStoryblok(path, { api: { version } })
 const page = story?.value?.content
 
 if (!story.value) {

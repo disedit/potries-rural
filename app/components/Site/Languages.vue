@@ -11,6 +11,7 @@ onMounted(() => {
   const gtranslateScript = document.createElement('script')
   gtranslateScript.src = 'https://cdn.gtranslate.net/widgets/latest/lc.js'
   gtranslateScript.defer = true
+  gtranslateScript.crossorigin = "anonymous"
   document.body.appendChild(gtranslateScript)
 });
 </script>
