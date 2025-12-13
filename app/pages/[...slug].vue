@@ -4,12 +4,7 @@ const settings = await useSettings()
 const global = settings?.value?.data?.story?.content
 
 /* Load page */
-const languages = ['ca', 'en', 'fr']
 const { slug } = useRoute().params
-// Remove first segment if it's a language code
-if (slug && slug.length > 0 && languages.includes(slug[0])) {
-  slug.shift()
-}
 const path = slug && slug.length > 0 && slug[0] ? slug.join('/') : 'home'
 const version = useEnvironment()
 const { story } = await useAsyncStoryblok(path, { api: { version } })

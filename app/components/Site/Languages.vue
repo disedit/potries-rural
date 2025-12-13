@@ -6,7 +6,7 @@
 
 <script setup>
 onMounted(() => {
-  window.gtranslateSettings = {"default_language":"es","detect_browser_language":true,"url_structure":"sub_directory","languages":["es","ca","en","fr"],"wrapper_selector":".gtranslate_wrapper"}
+  window.gtranslateSettings = {"default_language":"es","native_language_names":true,"detect_browser_language":true,"languages":["es","ca","fr","en"],"wrapper_selector":".gtranslate_wrapper"}
   // Load the GTranslate widget
   const gtranslateScript = document.createElement('script')
   gtranslateScript.src = 'https://cdn.gtranslate.net/widgets/latest/lc.js'
