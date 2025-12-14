@@ -39,7 +39,7 @@
             <IconsClose />
           </button>
         </div>
-        <div class="relative md:border-r border-gray-200 md:max-w-110 h-full flex flex-col gap-4 overflow-auto p-site pt-10 md:p-0 md:pe-site">
+        <div class="relative md:border-r border-gray-200 md:max-w-110 h-full flex flex-col gap-4 overflow-auto md:overflow-visible p-site pt-10 md:p-0 md:pe-site">
           <nav aria-label="Navegación principal">
             <ul class="flex flex-col gap-3 md:gap-4 md:py-6">
               <li v-for="item in global.menu" :key="item._uid">
@@ -52,18 +52,26 @@
                   {{ item.label }}
                 </NuxtLink>
                 <template v-else-if="item.component === 'Submenu'">
-                  <NuxtLink
-                    :to="internalLink(item.link)"
+                  <a
+                    :href="internalLink(item.link)"
                     @click.prevent="openSubmenu(item._uid)"
                     class="font-serif text-mdlg md:text-lg to-underlined flex items-center gap-2"
+                    role="button"
+                    aria-haspopup="true"
+                    :aria-expanded="submenuOpen === item._uid ? 'true' : 'false'"
+                    :aria-controls="`submenu-${item._uid}`"
                   >
                     {{ item.label }}
                     <IconsChev
                       :class="['transition ms-auto', { '-rotate-90': submenuOpen !== item._uid }]"
                     />
-                  </NuxtLink>
+                </a>
                   <Transition name="fade">
-                    <ul v-if="submenuOpen === item._uid" class="md:absolute md:top-0 md:right-0 md:px-site md:translate-x-full flex flex-col md:gap-4 md:py-6">
+                    <ul
+                      :id="`submenu-${item._uid}`"
+                      v-if="submenuOpen === item._uid"
+                      class="md:absolute md:top-0 md:right-0 md:px-site md:translate-x-full flex flex-col md:gap-4 md:py-6"
+                    >
                       <li v-for="subitem in item.items" :key="subitem._uid">
                         <NuxtLink
                           :to="internalLink(subitem.link)"
