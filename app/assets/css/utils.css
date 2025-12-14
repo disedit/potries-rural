@@ -8,10 +8,6 @@
     text-decoration: underline;
     text-underline-offset: 0.25em;
     text-decoration-thickness: 1px;
-
-    @media (width >= 48rem) {
-      text-decoration-thickness: 1.5px;
-    }
   }
 
   .links-underlined a:hover {

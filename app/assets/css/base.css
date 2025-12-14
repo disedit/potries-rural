@@ -15,3 +15,25 @@
     background-color: var(--color-selection-background, var(--color-black));
   }
 }
+
+.gtranslate_wrapper {
+  font-size: var(--text-basemd);
+  font-weight: 300;
+  display: flex;
+
+  a {
+    padding-inline: .25em;
+  }
+
+  a.glink.gt-current-lang,
+  a:hover {
+    font-weight: 300;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 1px;
+  }
+
+  &:has(a.glink:hover:not(.gt-current-lang)) a.glink.gt-current-lang {
+    text-decoration: none;
+  }
+}
