@@ -1,23 +1,17 @@
 <script setup>
 const props = defineProps({ blok: Object })
 const spacing = useSpacing(props.blok)
+const display = useDisplay(props.blok)
 const col1Align = useFlex(null, props.blok.column1_align)
 const col2Align = useFlex(null, props.blok.column2_align)
+const background = useBackgroundColor(props.blok.background)
 </script>
 
 <template>
   <section
     v-editable="blok"
     :id="blok.id || blok._uid"
-    :class="[
-      'px-site md:px-24 spacing',
-      {
-        'bg-beige': blok.background === 'beige',
-        'bg-white': blok.background === 'white',
-        'bg-black text-white': blok.background === 'black',
-        'bg-gray-100': blok.background === 'gray'
-      }
-    ]"
+    :class="['px-site md:px-24 spacing', background, display]"
     :style="spacing">
     <div
       :class="[

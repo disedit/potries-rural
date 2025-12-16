@@ -1,6 +1,7 @@
 <script setup>
 const props = defineProps({ blok: Object })
 const spacing = useSpacing(props.blok)
+const display = useDisplay(props.blok, 'grid')
 </script>
 
 <template>
@@ -8,7 +9,8 @@ const spacing = useSpacing(props.blok)
     v-editable="blok"
     :id="blok.id || blok._uid"
     :class="[
-      'contained grid px-site md:px-24 spacing grid-cols-2 md:grid-cols-3 gap-4 md:gap-site'
+      'contained px-site md:px-24 spacing grid-cols-2 md:grid-cols-3 gap-4 md:gap-site',
+      display
     ]"
     :style="spacing">
       <StoryblokComponent
