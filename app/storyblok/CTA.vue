@@ -6,6 +6,7 @@ const fontSizes = useFontSizes(props.blok)
 
 <template>
   <NuxtLink
+    v-editable="blok"
     :to="internalLink(blok.link)"
     :target="target(blok.link)"
     :class="['to-underlined', fontSizes]"

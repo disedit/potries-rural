@@ -5,6 +5,7 @@ const fontSizes = useFontSizes(props.blok)
 
 <template>
   <Component
+    v-editable="blok"
     :is="blok.heading_level || 'h2'"
     :class="[
       'font-serif leading-[1.1]',

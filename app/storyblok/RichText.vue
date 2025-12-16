@@ -5,6 +5,7 @@ const fontSizes = useFontSizes(props.blok)
 
 <template>
   <UtilsRichText
+    v-editable="blok"
     :content="blok.text"
     :class="[
       'text-pretty max-w-(--max-chars)',

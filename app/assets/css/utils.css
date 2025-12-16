@@ -4,6 +4,7 @@
   .links-to-underlined a:hover,
   .links-underlined a,
   .span-to-underlined:hover span,
+  .link-to-underlined:hover .link,
   .prose a:hover {
     text-decoration: underline;
     text-underline-offset: 0.25em;

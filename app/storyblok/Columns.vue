@@ -7,6 +7,7 @@ const col2Align = useFlex(null, props.blok.column2_align)
 
 <template>
   <section
+    v-editable="blok"
     :id="blok.id || blok._uid"
     :class="[
       'px-site md:px-24 spacing',
