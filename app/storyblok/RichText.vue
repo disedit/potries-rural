@@ -10,6 +10,7 @@ const fontSizes = useFontSizes(props.blok)
     :class="[
       'text-pretty max-w-(--max-chars)',
       {
+        'indent_first_paragraph': blok.indent_first_paragraph,
         ...fontSizes
       }
     ]"

@@ -34,6 +34,6 @@
   .fade-leave-to {
     opacity: 0;
     transform: translateY(-.25rem);
-    height: auto;
+    height: 0;
   }
 }
