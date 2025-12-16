@@ -2,7 +2,7 @@
   <footer class="font-serif text-basemd">
     <div class="flex flex-col md:flex-row bg-gray-100 px-site pb-6 pt-12">
       <div class="flex flex-col gap-6">
-        <div class="flex gap-2 items-center mb-4 text-mdlg md:text-lg" translate="no">
+        <div class="flex gap-2 items-center mb-4 text-mdlg md:text-lg leading-none" translate="no">
           <SiteIcon class="h-[1em]" />
           <span>POTRIES RURAL</span>
         </div>

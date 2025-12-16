@@ -1,0 +1,19 @@
+<script setup>
+const props = defineProps({ blok: Object })
+const fontSizes = useFontSizes(props.blok)
+</script>
+
+<template>
+  <UtilsRichText
+    :content="blok.text"
+    :class="[
+      'text-pretty max-w-(--max-chars)',
+      {
+        ...fontSizes
+      }
+    ]"
+    :style="{
+      '--max-chars': blok.max_width ? `${blok.max_width}ch` : null
+    }"
+  />
+</template>

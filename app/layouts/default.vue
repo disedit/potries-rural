@@ -21,9 +21,7 @@ useHead({
     <NuxtLoadingIndicator color="#000" />
     <NuxtRouteAnnouncer />
     <SiteNav />
-    <main class="min-h-svh pb-1">
-      <slot />
-    </main>
+    <slot />
     <SiteFooter />
   </div>
 </template>

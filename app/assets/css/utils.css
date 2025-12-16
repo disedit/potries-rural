@@ -55,4 +55,9 @@
       margin-block-end: var(--mb-md, var(--mb));
     }
   }
+
+  .contained {
+    max-width: var(--max-container-width);
+    margin-inline: auto;
+  }
 }

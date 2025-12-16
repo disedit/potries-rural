@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: Pretendard, sans-serif;
-  --font-serif: Georgia, serif;
+  --font-serif: Louize, Georgia, serif;
   --color-black: #000;
   --color-white: #fff;
   --color-gray-100: #F5F5F5;
@@ -26,6 +26,7 @@
   --spacing-site: 3rem;
   --spacing-nav: 6rem;
   --border-width: 1.5px;
+  --max-container-width: 2400px;
 
   --color-lime-*: initial;
   --color-red-*: initial;

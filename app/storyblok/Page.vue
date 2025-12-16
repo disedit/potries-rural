@@ -3,9 +3,11 @@ defineProps({ blok: Object })
 </script>
 
 <template>
-  <StoryblokComponent
-    v-for="component in blok.body"
-    :key="component._uid"
-    :blok="component"
-  />
+  <main class="min-h-svh pb-1">
+    <StoryblokComponent
+      v-for="component in blok.body"
+      :key="component._uid"
+      :blok="component"
+    />
+  </main>
 </template>
