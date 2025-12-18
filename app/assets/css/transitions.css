@@ -37,3 +37,13 @@
     height: 0;
   }
 }
+
+.filter-enter-active,
+.filter-leave-active {
+  transition: .2s ease;
+}
+
+.filter-enter-from,
+.filter-leave-to {
+  opacity: 0;
+}

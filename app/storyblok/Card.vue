@@ -11,10 +11,12 @@ const justify = useFlex(props.blok.align, props.blok.justify)
     v-editable="blok"
     :is="tag"
     :to="blok.link?.cached_url ? internalLink(blok.link) : null"
-    :class="['link-to-underlined flex', justify]">
+    :class="['link-to-underlined flex', justify]"
+    :data-keyword="blok.filter_keyword">
       <div :class="['grid gap-4', { 'md:w-[50%]': blok.mini }]">
         <UtilsMedia
           :media="blok.media"
+          :width="800"
           :class="['w-full h-50 object-cover', { 'md:h-100': blok.fixed_height && !blok.mini, 'md:h-auto': !blok.fixed_height }]"
         />
         <div

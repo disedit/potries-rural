@@ -6,6 +6,7 @@ defineProps({ blok: Object })
   <UtilsMedia
     v-editable="blok"
     :media="blok.media"
+    :width="1500"
     :class="[
       'media w-full',
       {
