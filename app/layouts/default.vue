@@ -1,10 +1,10 @@
 <script setup>
 useHead({
-  htmlAttrs: { lang: 'es-ES', class: 'bg-gray font-sans' },
+  htmlAttrs: { lang: 'es-ES', class: 'bg-white font-sans' },
   meta: [
-    { name: 'theme-color', content: '#f1f0eb' },
-    { name: 'msapplication-TileColor', content: '#f1f0eb' },
-    { name: 'apple-mobile-web-app-title', content: 'Agencia By' }
+    { name: 'theme-color', content: '#000' },
+    { name: 'msapplication-TileColor', content: '#000' },
+    { name: 'apple-mobile-web-app-title', content: 'Potries Rural' }
   ],
   link: [
     { rel: 'icon', type: 'image/png', href: '/favicons/favicon-96x96.png', sizes: '96x96' },

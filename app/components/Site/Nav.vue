@@ -3,10 +3,9 @@
     :class="[
       'fixed top-0 left-0 right-0 flex gap-site items-center px-site py-site md:py-8 z-1000 transition-all duration-500 ease-out ',
       {
-        'text-white selection-dark focus-dark': dark && !isScrolled,
-        'text-black': !dark || isScrolled,
+        'text-white selection-dark focus-dark': !isScrolled,
+        'text-black bg-white': isScrolled,
         '-translate-y-full': !showNavbar && !isMobile,
-        'bg-white': isScrolled
       }
     ]">
     <button @click="toggleMenu" class="cursor-pointer p-6 -m-6 hover:opacity-75 transition-opacity" title="Abrir menú" ref="toggler">
@@ -30,10 +29,8 @@ const settings = await useSettings()
 const global = settings?.value?.data?.story?.content
 const { internalLink, target } = useLinks()
 
-const dark = ref(true)
-
 // Open/Close menu
-const { setMenuOpen, unsetMenuOpen } = useColorMode()
+const { setMenuOpen, unsetMenuOpen, setDark, unsetDark } = useColorMode()
 const menuOpen = ref(false)
 
 const showMenu = () => {
@@ -58,7 +55,7 @@ const { y } = useWindowScroll()
 const { height } = useWindowSize()
 const showNavbar = ref(true)
 const lastScrollPosition = ref(0)
-const isScrolled = computed(() => y.value > height.value)
+const isScrolled = computed(() => y.value > (height.value - 100))
 
 watch(y, (currentScrollPosition) => {
   if (currentScrollPosition < 0 || Math.abs(currentScrollPosition - lastScrollPosition.value) < 60) {
@@ -68,4 +65,11 @@ watch(y, (currentScrollPosition) => {
   lastScrollPosition.value = currentScrollPosition
 })
 
+watch(isScrolled, (scrolled) => {
+  if (scrolled) {
+    unsetDark()
+  } else {
+    setDark()
+  }
+})
 </script>

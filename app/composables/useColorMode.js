@@ -5,12 +5,10 @@ export const useColorMode = () => {
   }
 
   const setDark = () => {
-    document.documentElement.classList.add('dark')
     document.querySelector('meta[name="theme-color"]').setAttribute('content', colors.dark)
   }
 
   const unsetDark = () => {
-    document.documentElement.classList.remove('dark')
     document.querySelector('meta[name="theme-color"]').setAttribute('content', colors.light)
   }
 
