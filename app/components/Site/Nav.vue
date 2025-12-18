@@ -3,7 +3,7 @@
     :class="[
       'fixed top-0 left-0 right-0 flex gap-site items-center px-site py-site md:py-8 z-1000 transition-all duration-500 ease-out ',
       {
-        'text-white bg-black/10 selection-dark focus-dark': !isScrolled,
+        'text-white bg-black/0 selection-dark focus-dark': !isScrolled,
         'text-black bg-white': isScrolled,
         '-translate-y-full': !showNavbar && !isMobile,
       }
@@ -36,11 +36,15 @@ const menuOpen = ref(false)
 const showMenu = () => {
   menuOpen.value = true
   setMenuOpen()
+  unsetDark()
 }
 
 const hideMenu = () => {
   menuOpen.value = false
   unsetMenuOpen()
+  if (!isScrolled.value) {
+    setDark()
+  }
 }
 
 function toggleMenu() {
