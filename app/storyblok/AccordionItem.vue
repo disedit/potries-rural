@@ -18,7 +18,7 @@ const expanded = ref(false)
         <IconsPlus :minus="expanded" class="h-[1.2em]" />
       </button>
     </h3>
-    <Transition name="fade">
+    <Transition name="accordion">
       <div
         v-if="expanded"
         role="region"
@@ -27,7 +27,7 @@ const expanded = ref(false)
       >
         <UtilsRichText
           :content="blok.text"
-          class="text-smbase md:text-base pb-3 md:pb-4"
+          class="text-smbase md:text-base pb-3 md:pb-4 -tracking-[0.015em]"
         />
       </div>
     </Transition>

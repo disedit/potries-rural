@@ -8,9 +8,9 @@ const fontSizes = useFontSizes(props.blok)
     v-editable="blok"
     :content="blok.text"
     :class="[
-      'text-pretty max-w-(--max-chars)',
+      'text-pretty max-w-(--max-chars) -tracking-[0.015em] spaced-paragraphs',
       {
-        'indent_first_paragraph': blok.indent_first_paragraph,
+        'indent-first-paragraph': blok.indent_first_paragraph,
         ...fontSizes
       }
     ]"

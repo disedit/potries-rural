@@ -1,6 +1,7 @@
 <script setup>
 const props = defineProps({ blok: Object })
 const { internalLink } = useLinks()
+const { hasRichText } = useUtils()
 
 const tag = props.blok.link?.cached_url ? resolveComponent('NuxtLink') : 'article'
 const justify = useFlex(props.blok.align, props.blok.justify)
@@ -28,8 +29,8 @@ const justify = useFlex(props.blok.align, props.blok.justify)
           <h2 class="font-serif text-base md:text-md leading-[1.1] translate-y-[.25em]">
             <UtilsRichText :content="blok.heading" />
           </h2>
-          <UtilsRichText :content="blok.text" class="text-sm md:text-base" />
-          <span class="text-sm md:text-base link">
+          <UtilsRichText v-if="hasRichText(blok.text)" :content="blok.text" class="text-sm md:text-base" />
+          <span v-if="blok.cta" class="text-sm md:text-base link">
             {{ blok.cta }} →
           </span>
         </div>

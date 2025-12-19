@@ -47,3 +47,21 @@
 .filter-leave-to {
   opacity: 0;
 }
+
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: .2s ease;
+  overflow: clip;
+  interpolate-size: allow-keywords;
+  height: auto;
+}
+
+.accordion-enter-from {
+  opacity: 0;
+  height: 0;
+}
+
+.accordion-leave-to {
+  opacity: 0;
+  height: 0;
+}

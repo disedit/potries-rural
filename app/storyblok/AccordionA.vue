@@ -2,6 +2,7 @@
 const props = defineProps({ blok: Object })
 const spacing = useSpacing(props.blok)
 const background = useBackgroundColor(props.blok.background)
+const { internalLink } = useLinks()
 </script>
 
 <template>
@@ -13,7 +14,12 @@ const background = useBackgroundColor(props.blok.background)
   >
     <div class="grid md:grid-cols-2 contained gap-site md:gap-24">
       <div class="grid md:grid-cols-2 font-serif gap-site">
-        <h2 class="text-xl leading-[1.1]">
+        <NuxtLink v-if="blok.link?.chached_url" :to="internalLink(blok.link)" class="to-underlined">
+          <h2 class="font-serif text-xl leading-[1.1]">
+            {{ blok.heading }}
+          </h2>
+        </NuxtLink>
+        <h2 v-else class="font-serif text-xl leading-[1.1]">
           {{ blok.heading }}
         </h2>
         <div class="md:text-right whitespace-pre-wrap text-base md:text-md leading-[1.1] md:translate-y-[.55em]">
