@@ -49,7 +49,7 @@ const { internalLink } = useLinks()
           {{ blok.cta }}
         </NuxtLink>
       </div>
-      <div class="lg:text-right text-balance max-w-[60ch] lg:justify-self-end text-base tracking-site leading-[1.1]">
+      <div class="lg:text-right text-balance max-w-[60ch] lg:justify-self-end text-base tracking-site">
         {{ blok.text }}
       </div>
       <NuxtLink

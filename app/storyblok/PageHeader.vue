@@ -14,7 +14,7 @@ const { hasRichText } = useUtils()
         <span class="hidden md:inline ms-4">{{ blok.bottom_text }}</span>
       </h1>
     </template>
-    <h1 v-else class="flex font-serif text-md md:text-2xl relative z-10 leading-[1.1] text-center md:text-left text-balance w-full">
+    <h1 v-else class="block md:flex font-serif text-md md:text-2xl relative z-10 leading-[1.1] text-center md:text-left text-balance w-full">
       <UtilsRichText :content="blok.heading" />
       <span class="hidden md:inline ms-4">{{ blok.bottom_text }}</span>
     </h1>

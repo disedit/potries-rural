@@ -26,9 +26,13 @@
 
     ul, ol {
       li {
-        margin-block-end: .75em;
+        margin-block-end: .5em;
         margin-inline-start: 1em;
-        padding-inline-start: .75em;
+        padding-inline-start: .5em;
+
+        &::marker {
+          content: '→';
+        }
       }
     }
 
@@ -84,5 +88,9 @@
   .contained {
     max-width: var(--max-container-width);
     margin-inline: auto;
+  }
+
+  .edge-on-mobile-padding {
+    padding-inline: var(--spacing-site);
   }
 }
