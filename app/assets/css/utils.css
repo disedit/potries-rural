@@ -17,11 +17,31 @@
 
   .prose {
     &.spaced-paragraphs p:not(:last-child) {
-      margin-bottom: .75em;
+      margin-block-end: .75em;
     }
 
     &.indent-first-paragraph p:first-child {
       text-indent: 4em;
+    }
+
+    ul, ol {
+      li {
+        margin-block-end: .75em;
+        margin-inline-start: 1em;
+        padding-inline-start: .75em;
+      }
+    }
+
+    ul {
+      li {
+        list-style: disc;
+      }
+    }
+
+    ol {
+      li {
+        list-style: decimal;
+      }
     }
   }
 

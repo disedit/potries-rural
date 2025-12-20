@@ -11,7 +11,7 @@ const background = useBackgroundColor(props.blok.background)
   <section
     v-editable="blok"
     :id="blok.id || blok._uid"
-    :class="['px-site md:px-24 spacing', background, display]"
+    :class="['px-site lg:px-24 spacing', background, display]"
     :style="spacing">
     <div
       :class="[

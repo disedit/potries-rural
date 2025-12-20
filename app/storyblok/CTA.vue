@@ -9,7 +9,7 @@ const fontSizes = useFontSizes(props.blok)
     v-editable="blok"
     :to="internalLink(blok.link)"
     :target="target(blok.link)"
-    :class="['to-underlined -tracking-[0.015em]', fontSizes]"
+    :class="['to-underlined tracking-site', fontSizes]"
   >
     {{ blok.label }} →
   </NuxtLink>

@@ -12,7 +12,7 @@ const background = useBackgroundColor(props.blok.background)
     :class="[
       'spacing',
       {
-        'px-site md:px-24': blok.padding,
+        'px-site lg:px-24': blok.padding,
         ...display,
         ...background
       }

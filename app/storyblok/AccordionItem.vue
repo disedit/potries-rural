@@ -5,11 +5,11 @@ const expanded = ref(false)
 </script>
 
 <template>
-  <li class="border-y md:border-y-[1.5px] -mt-px md:-mt-[1.5px]">
+  <li v-editable="blok" class="border-y md:border-y-[1.5px] -mt-px md:-mt-[1.5px]">
     <h3>
       <button
         @click="expanded = !expanded"
-        class="w-full flex items-center justify-between text-base md:text-md py-2 md:py-3 cursor-pointer tracking-tight"
+        class="w-full flex items-center justify-between text-base md:text-md py-2 md:py-3 cursor-pointer tracking-site"
         :id="`accordion-button-${blok._uid}`"
         :aria-expanded="expanded ? 'true' : 'false'"
         :aria-controls="`accordion-content-${blok._uid}`"
@@ -20,14 +20,14 @@ const expanded = ref(false)
     </h3>
     <Transition name="accordion">
       <div
-        v-if="expanded"
+        v-show="expanded"
         role="region"
         :id="`accordion-content-${blok._uid}`"
         :aria-labelledby="`accordion-button-${blok._uid}`"
       >
         <UtilsRichText
           :content="blok.text"
-          class="text-smbase md:text-base pb-3 md:pb-4 -tracking-[0.015em]"
+          class="text-smbase md:text-base pb-3 md:pb-4 tracking-site"
         />
       </div>
     </Transition>

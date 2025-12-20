@@ -15,7 +15,3 @@ onMounted(() => {
   document.body.appendChild(gtranslateScript)
 });
 </script>
-
-<style>
-
-</style>

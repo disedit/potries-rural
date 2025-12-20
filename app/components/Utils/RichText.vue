@@ -1,11 +1,12 @@
 <script setup>
 defineProps({
-  content: Object,
+  content: { type: Object, required: true },
+  tag: { type: String, default: 'div' }
 })
 </script>
 
 <template>
-  <div class="prose">
+  <Component :is="tag" class="prose">
     <StoryblokRichText :doc="content" />
-  </div>
+  </Component>
 </template>

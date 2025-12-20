@@ -3,12 +3,12 @@ const props = defineProps({ blok: Object })
 </script>
 
 <template>
-  <div class="relative aspect-square w-full bg-gray-100">
+  <div v-editable="blok" class="relative aspect-square w-full bg-gray-100">
     <ul
-      v-editable="blok"
       class="bg-gray-100 aspect-square w-full flex overflow-x-scroll snap-x snap-mandatory"
+      ref="slider"
     >
-      <li v-for="media in blok.media" :key="media._uid" class="basis-full snap-center shrink-0 grow-0">
+      <li v-for="media in blok.media" :key="media._uid" class="basis-full snap-center shrink-0 grow-0 pointer-events-none select-none">
         <UtilsMedia
           :media="media"
           :width="1000"

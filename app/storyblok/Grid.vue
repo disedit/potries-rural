@@ -11,7 +11,7 @@ const currentFilter = ref(null)
   <section
     v-editable="blok"
     :id="blok.id || blok._uid"
-    :class="['contained px-site md:px-24 spacing', display]"
+    :class="['contained px-site lg:px-24 spacing', display]"
     :style="spacing">
       <ul
         v-if="blok.filters && blok.filters.length > 0"

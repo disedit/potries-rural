@@ -15,7 +15,7 @@ const column = (col, items) => {
   <section
     v-editable="blok"
     :id="blok.id || blok._uid"
-    :class="['spacing px-site md:px-24', background]"
+    :class="['spacing px-site lg:px-24', background]"
     :style="spacing"
   >
     <div class="grid md:grid-cols-2 contained gap-4 md:gap-24">

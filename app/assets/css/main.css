@@ -13,9 +13,9 @@
   --text-xxs: 0.625rem;
   --text-xs: clamp(0.6rem, 0.06vi + 0.58rem, 0.63rem);
   --text-sm: clamp(0.85rem, 0.22vi + 0.78rem, 0.88rem);
-  --text-smbase: clamp(0.9rem, 0.27vi + 0.8rem, 0.94rem);
-  --text-base: clamp(0.94rem, 0.33vi + 0.84rem, 1.14rem);
-  --text-basemd: clamp(1.1rem, 0.43vi + 0.9rem, 1.25rem);
+  --text-smbase: clamp(0.9rem, 0.27vi + 0.8rem, 1.1rem);
+  --text-base: clamp(0.94rem, 0.33vi + 0.84rem, 1.25rem);
+  --text-basemd: clamp(1.1rem, 0.43vi + 0.9rem, 1.35rem);
   --text-md: clamp(1.18rem, 0.59vi + 1rem, 1.45rem);
   --text-mdlg: clamp(1.32rem, 0.75vi + 1.1rem, 1.75rem);
   --text-lg: clamp(1.46rem, 0.97vi + 1.22rem, 2rem);
@@ -27,6 +27,7 @@
   --spacing-nav: 6rem;
   --border-width: 1.5px;
   --max-container-width: 2400px;
+  --tracking-site: -0.02em;
 
   --color-lime-*: initial;
   --color-red-*: initial;
@@ -68,3 +69,4 @@
 @import "./base.css";
 @import "./utils.css";
 @import "./transitions.css";
+@import "vue3-carousel/carousel.css";
