@@ -47,6 +47,29 @@
         list-style: decimal;
       }
     }
+
+    h2 {
+      font-size: 1.5em;
+      margin-block-end: .25em;
+      font-family: var(--font-serif);
+
+      &:not(:first-child) {
+        margin-block-start: 1em;
+      }
+    }
+  
+    h3 {
+      font-size: 1.25em;
+      margin-block-start: 1em;
+      margin-block-end: .25em;
+      font-family: var(--font-serif);
+    }
+
+    h4, h5, h6 {
+      font-weight: bold;
+      margin-block-start: 1em;
+      margin-block-end: .25em;
+    }
   }
 
   .column .self-end {

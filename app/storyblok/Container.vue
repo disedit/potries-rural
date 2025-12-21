@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({ blok: Object })
-const spacing = useSpacing(props.blok, props.padding ? 'var(--spacing-site)' : '0', 0, props.padding ? '6rem' : '0', 0)
+const spacing = useSpacing(props.blok, props.blok.padding ? 'var(--spacing-site)' : '0', 0, props.blok.padding ? '6rem' : '0', 0)
 const display = useDisplay(props.blok)
 const background = useBackgroundColor(props.blok.background)
 </script>
