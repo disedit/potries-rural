@@ -34,8 +34,16 @@ function nextSlide () {
     :style="spacing"
   >
     <div v-if="blok.items && blok.items.length > 0" class="grid grid-cols-[auto_1fr] lg:grid-cols-[1fr_2fr_1fr] xl:grid-cols-3 gap-site items-start lg:items-center px-site lg:px-0">
-      <div class="lg:text-right font-serif italic text-basemd lg:text-md lg:pb-0 -mt-1 lg:mt-0">
-        {{ currentSlide + 1 }} / {{ blok.items.length }}
+      <div class="flex gap-1 lg:justify-end font-serif italic text-basemd lg:text-md lg:pb-0 -mt-1 lg:mt-0">
+        <span class="relative">
+          <TransitionGroup name="scroll">
+            <template v-for="i in blok.items.length" :key="i">
+              <span v-if="i === currentSlide + 1" class="absolute right-0">{{ i }}</span>
+            </template>
+          </TransitionGroup>
+        </span>
+        <span>/</span>
+        <span>{{ blok.items.length }}</span>
       </div>
       <div class="row-1 col-span-2 lg:row-auto lg:col-span-1 h-[60vh] lg:h-[50vh] relative">
         <Carousel v-if="blok.items && blok.items.length > 0" :gap="20" v-model="currentSlide" class="order-1 lg:order-2">

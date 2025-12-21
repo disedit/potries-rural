@@ -8,7 +8,7 @@ const fontSizes = useFontSizes(props.blok)
     v-editable="blok"
     :is="blok.heading_level || 'h2'"
     :class="[
-      'font-serif leading-[1.1]',
+      'font-serif leading-[1.1] translate-y-[.1em]',
       { ...fontSizes }
     ]"
   >

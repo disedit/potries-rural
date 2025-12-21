@@ -91,6 +91,8 @@
   }
 
   .edge-on-mobile-padding {
-    padding-inline: var(--spacing-site);
+    @media (width < 48rem) {
+      padding-inline: var(--spacing-site);
+    }
   }
 }

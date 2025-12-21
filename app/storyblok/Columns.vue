@@ -25,7 +25,7 @@ const background = useBackgroundColor(props.blok.background)
     >
       <div
         :class="[
-          'flex flex-col gap-6 md:gap-10',
+          'flex flex-col gap-4 md:gap-10',
           col1Align,
           { 'row-2 md:row-auto': blok.invert_on_mobile }
         ]"
@@ -38,7 +38,7 @@ const background = useBackgroundColor(props.blok.background)
       </div>
       <div
         :class="[
-          'flex flex-col gap-6 md:gap-10',
+          'flex flex-col gap-4 md:gap-10',
           col2Align,
           { 'row-1 md:row-auto': blok.invert_on_mobile }
         ]"
