@@ -30,11 +30,13 @@ const background = useBackgroundColor(props.blok.background)
           { 'row-2 md:row-auto': blok.invert_on_mobile }
         ]"
       >
-        <StoryblokComponent
-          v-for="component in blok.column1"
-          :key="component._uid"
-          :blok="component"
-        />
+        <div :class="['flex flex-col gap-4 md:gap-10', { 'sticky top-30': blok.sticky_column_1 }]">
+          <StoryblokComponent
+            v-for="component in blok.column1"
+            :key="component._uid"
+            :blok="component"
+          />
+        </div>
       </div>
       <div
         :class="[
@@ -43,11 +45,13 @@ const background = useBackgroundColor(props.blok.background)
           { 'row-1 md:row-auto': blok.invert_on_mobile }
         ]"
       >
-        <StoryblokComponent
-          v-for="component in blok.column2"
-          :key="component._uid"
-          :blok="component"
-        />
+      <div :class="['flex flex-col gap-4 md:gap-10', { 'sticky top-30': blok.sticky_column_2 }]">
+          <StoryblokComponent
+            v-for="component in blok.column2"
+            :key="component._uid"
+            :blok="component"
+          />
+        </div>
       </div>
     </div>
   </section>

@@ -22,11 +22,11 @@ const display = useDisplay(props.blok)
         class="w-[40vw] md:w-[20vw] shrink-0 bg-white pointer-events-none select-none">
         <UtilsMedia
           :media="image"
-          class="w-full max-h-[75vw] object-cover pe-site"
+          class="w-full max-h-[75vw] object-cover pe-6"
         />
       </div>
     </UtilsSlider>
-    <div class="text-base md:text-md text-right px-site lg:px-24">
+    <div class="text-base md:text-md text-right px-site mt-8 md:mt-20 lg:px-24">
       {{ blok.hint }} →
     </div>
   </section>

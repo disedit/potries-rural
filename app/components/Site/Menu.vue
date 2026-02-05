@@ -88,18 +88,61 @@
             </ul>
           </nav>
           <nav aria-label="Navegación secundaria">
-            <ul>
-              <li v-for="(item, i) in global.secondary_menu" :key="item._uid">
-                <NuxtLink
-                  :to="internalLink(item.link)"
-                  @click="closeMenu"
-                  :class="[
-                    'font-sans text-base font-light hover:font-semibold transition-all',
-                    { 'ps-4': i > 0 }
-                  ]"
+            <ul class="font-sans text-base font-light">
+              <li>
+                <button
+                  @click="secondaryMenu = !secondaryMenu"
+                  :class="['hover:font-semibold transition-all cursor-pointer', { 'font-semibold': secondaryMenu }]"
                 >
-                  {{ item.label }}
-                </NuxtLink>
+                  + INFO
+                </button>
+                <Transition name="fade">
+                  <ul v-if="secondaryMenu" class="ps-4">
+                    <li v-for="item in global.secondary_menu" :key="item._uid">
+                      <NuxtLink
+                        v-if="item.component === 'MenuItem'"
+                        :to="internalLink(item.link)"
+                        @click="closeMenu"
+                        class="hover:font-semibold transition-all"
+                      >
+                        {{ item.label }}
+                      </NuxtLink>
+                      <template v-else-if="item.component === 'Submenu'">
+                        <a
+                          :href="internalLink(item.link)"
+                          @click.prevent="openSecondarySubmenu(item._uid)"
+                          class="hover:font-semibold transition-all flex items-center gap-2"
+                          role="button"
+                          aria-haspopup="true"
+                          :aria-expanded="secondarySubmenuOpen === item._uid ? 'true' : 'false'"
+                          :aria-controls="`secondary-submenu-${item._uid}`"
+                        >
+                          {{ item.label }}
+                          <IconsChev
+                            :class="['transition h-3 w-3', { '-rotate-90': secondarySubmenuOpen !== item._uid }]"
+                          />
+                      </a>
+                        <Transition name="fade">
+                          <ul
+                            :id="`secondary-submenu-${item._uid}`"
+                            v-if="secondarySubmenuOpen === item._uid"
+                          >
+                            <li v-for="subitem in item.items" :key="subitem._uid">
+                              <NuxtLink
+                                :to="internalLink(subitem.link)"
+                                :target="target(subitem.link)"
+                                @click="closeMenu"
+                                class="hover:font-semibold transition-all"
+                              >
+                                {{ subitem.label }}
+                              </NuxtLink>
+                            </li>
+                          </ul>
+                        </Transition>
+                      </template>
+                    </li>
+                  </ul>
+                </Transition>
               </li>
             </ul>
           </nav>
@@ -147,9 +190,14 @@ const closeMenu = () => {
 }
 
 /* Submenus */
+const secondaryMenu = ref(false)
 const submenuOpen = ref(null)
 const openSubmenu = (id) => {
   submenuOpen.value = submenuOpen.value === id ? null : id
+}
+const secondarySubmenuOpen = ref(null)
+const openSecondarySubmenu = (id) => {
+  secondarySubmenuOpen.value = secondarySubmenuOpen.value === id ? null : id
 }
 
 /* Transitions */

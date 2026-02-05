@@ -1,6 +1,8 @@
 <script setup>
 defineProps({ blok: Object })
 
+const { internalLink, target } = useLinks()
+
 const expanded = ref(false)
 </script>
 
@@ -29,6 +31,13 @@ const expanded = ref(false)
           :content="blok.text"
           class="text-smbase md:text-base pb-3 md:pb-4 tracking-site"
         />
+        <NuxtLink
+          v-if="blok.link"
+          :href="internalLink(blok.link)"
+          :target="target(blok.link)"
+          class="to-underlined tracking-site text-base block pb-4">
+          {{ blok.link_text }} →
+        </NuxtLink>
       </div>
     </Transition>
   </li>
