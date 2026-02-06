@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({ blok: Object })
+const props = defineProps({ blok: Object, textEdge: { type: Boolean, default: false  }})
 const { internalLink } = useLinks()
 const { hasRichText } = useUtils()
 
@@ -12,7 +12,7 @@ const justify = useFlex(props.blok.align, props.blok.justify)
     v-editable="blok"
     :is="tag"
     :to="blok.link?.cached_url ? internalLink(blok.link) : null"
-    :class="['link-to-underlined flex', justify]"
+    :class="['link-to-underlined flex', justify, { 'pb-8 md:pb-0': blok.bottom_padding }]"
     :data-keyword="blok.filter_keyword">
       <div :class="['grid gap-4 w-full', { 'md:w-[50%]': blok.mini }]">
         <UtilsMedia
@@ -22,14 +22,15 @@ const justify = useFlex(props.blok.align, props.blok.justify)
         />
         <div
           :class="[
-            'flex flex-col gap-4 edge-on-mobile-padding',
-            { 'md:row-1': blok.invert }
+            'flex flex-col gap-4',
+            { 'md:row-1': blok.invert },
+            { 'edge-on-mobile-padding': !textEdge && !blok.text_edge }
           ]"
         >
           <h2 class="font-serif text-base md:text-md leading-[1.1] translate-y-[.25em]">
             <UtilsRichText :content="blok.heading" />
           </h2>
-          <UtilsRichText v-if="hasRichText(blok.text)" :content="blok.text" class="text-xs md:text-base" />
+          <UtilsRichText v-if="hasRichText(blok.text)" :content="blok.text" class="hidden md:block text-xs md:text-base" />
           <span v-if="blok.cta" class="text-xs md:text-base link">
             {{ blok.cta }} →
           </span>

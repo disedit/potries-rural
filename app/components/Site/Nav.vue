@@ -8,10 +8,10 @@
         '-translate-y-full': !showNavbar && !isMobile,
       }
     ]">
-    <button @mouseenter="showMenu" class="cursor-pointer p-6 -m-6 hover:opacity-75 transition-opacity" title="Abrir menú" ref="toggler">
+    <button class="cursor-pointer p-6 -m-6 hover:opacity-75 transition-opacity" title="Abrir menú" ref="toggler">
       <IconsBurger />
     </button>
-    <NuxtLink to="/" @mouseenter="showMenu">
+    <NuxtLink to="/">
       <SiteLogo class="h-6 w-auto md:h-12 translate-y-[.1rem]" />
     </NuxtLink>
     <SiteNavCta :href="internalLink(global.cta[0].link)" :target="target(global.cta[0].link)" class="ms-auto">

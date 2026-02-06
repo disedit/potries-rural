@@ -1,5 +1,5 @@
 export const useSpacing = (blok, defaultPadding, defaultMargin, defaultPaddingDesktop, defaultMarginDesktop) => {
-  if (!defaultPadding) defaultPadding = 'calc(var(--spacing-site) * 1.25)'
+  if (!defaultPadding) defaultPadding = 'calc(var(--spacing-site) * 3.5)'
   if (!defaultPaddingDesktop) defaultPaddingDesktop = '6rem'
   if (!defaultMargin) defaultMargin = 0
   if (!defaultMarginDesktop) defaultMarginDesktop = 0

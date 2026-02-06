@@ -17,9 +17,9 @@ const background = useBackgroundColor(props.blok.background)
       :class="[
         'contained grid',
         {
-          'md:grid-cols-2 gap-site md:gap-24': blok.template === '50-50',
-          'md:grid-cols-[2fr_1fr] gap-site': blok.template === '66-33',
-          'md:grid-cols-[1fr_2fr] gap-site': blok.template === '33-66',
+          'md:grid-cols-2 gap-14 md:gap-24': blok.template === '50-50',
+          'md:grid-cols-[2fr_1fr] gap-14': blok.template === '66-33',
+          'md:grid-cols-[1fr_2fr] gap-14': blok.template === '33-66',
         }
       ]"
     >

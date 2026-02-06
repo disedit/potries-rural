@@ -16,12 +16,12 @@ const currentFilter = ref(null)
       <ul
         v-if="blok.filters && blok.filters.length > 0"
         aria-label="Filtros"
-        class="flex justify-center gap-site pb-site md:pb-24 text-base"
+        class="flex md:justify-center gap-site pb-14 md:pb-24 text-base overflow-x-auto -mx-4 px-site"
       >
         <li>
           <button
             @click="currentFilter = null"
-            :class="['to-underlined cursor-pointer', { 'font-bold': !currentFilter }]"
+            :class="['to-underlined cursor-pointer whitespace-nowrap', { 'font-bold': !currentFilter }]"
             :aria-pressed="!currentFilter ? true : false"
           >
             VER TODOS
@@ -30,7 +30,7 @@ const currentFilter = ref(null)
         <li v-for="filter in blok.filters" :key="filter._uid">
           <button
             @click="currentFilter = filter.keyword"
-            :class="['to-underlined cursor-pointer', { 'font-bold': currentFilter === filter.keyword }]"
+            :class="['to-underlined cursor-pointer whitespace-nowrap', { 'font-bold': currentFilter === filter.keyword }]"
             :aria-pressed="currentFilter === filter.keyword ? true : false"
           >
             {{ filter.label }}
@@ -43,6 +43,7 @@ const currentFilter = ref(null)
             <StoryblokComponent
               v-if="component.filter_keyword === currentFilter || !currentFilter"
               :blok="component"
+              :text-edge="blok.text_edge"
             />
           </template>
         </TransitionGroup>
