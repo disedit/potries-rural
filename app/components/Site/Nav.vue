@@ -8,10 +8,10 @@
         '-translate-y-full': !showNavbar && !isMobile,
       }
     ]">
-    <button @mouseenter="showMenu" @click="toggleMenu" class="cursor-pointer p-6 -m-6 hover:opacity-75 transition-opacity" title="Abrir menú" ref="toggler">
+    <button @mouseenter="hoverShowMenu" @click="toggleMenu" class="cursor-pointer p-6 -m-6 hover:opacity-75 transition-opacity" title="Abrir menú" ref="toggler">
       <IconsBurger />
     </button>
-    <NuxtLink to="/" @mouseenter="showMenu" @click="toggleMenu">
+    <NuxtLink to="/" @mouseenter="hoverShowMenu" @click="toggleMenu">
       <SiteLogo class="h-6 w-auto md:h-12 translate-y-[.1rem]" />
     </NuxtLink>
     <SiteNavCta :href="internalLink(global.cta[0].link)" :target="target(global.cta[0].link)" class="ms-auto">
@@ -28,21 +28,17 @@ import { breakpointsTailwind } from '@vueuse/core'
 const settings = await useSettings()
 const global = settings?.value?.data?.story?.content
 const { internalLink, target } = useLinks()
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isMobile = breakpoints.smaller('lg')
 
 // Open/Close menu
 const { setMenuOpen, unsetMenuOpen, setDark, unsetDark } = useColorMode()
 const menuOpen = ref(false)
-const clickable = ref(true)
 
 const showMenu = () => {
-  clickable.value = false
   menuOpen.value = true
   setMenuOpen()
   unsetDark()
-
-  setTimeout(() => {
-    clickable.value = true
-  }, 500)
 }
 
 const hideMenu = () => {
@@ -54,14 +50,17 @@ const hideMenu = () => {
 }
 
 function toggleMenu() {
-  if (!clickable.value) return
   const action = menuOpen.value ? hideMenu : showMenu
   action()
 }
 
+const hoverShowMenu = () => {
+  if (isMobile.value) return
+
+  showMenu()
+}
+
 // Show/Hide on scroll
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const isMobile = breakpoints.smaller('lg')
 const { y } = useWindowScroll()
 const { height } = useWindowSize()
 const showNavbar = ref(true)
