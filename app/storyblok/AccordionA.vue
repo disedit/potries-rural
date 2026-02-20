@@ -12,7 +12,7 @@ const { internalLink } = useLinks()
     :class="['spacing px-site lg:px-24', background]"
     :style="spacing"
   >
-    <div class="grid lg:grid-cols-2 contained gap-site lg:gap-24">
+    <div class="grid lg:grid-cols-2 contained gap-10 lg:gap-24">
       <div class="grid lg:grid-cols-2 font-serif gap-site">
         <NuxtLink v-if="blok.link?.chached_url" :to="internalLink(blok.link)" class="to-underlined">
           <h2 class="font-serif text-xl leading-[1.1]">
@@ -35,7 +35,7 @@ const { internalLink } = useLinks()
         />
       </div>
       <div class="lg:row-auto flex flex-col gap-site">
-        <ul class="border-t lg:border-t-[1.5px]">
+        <ul class="border-t lg:border-t-[1.5px] mb-2 md:mb-0">
           <StoryblokComponent
             v-for="component in blok.items"
             :key="component._uid"

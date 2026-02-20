@@ -37,7 +37,7 @@ const currentFilter = ref(null)
           </button>
         </li>
       </ul>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-site">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-12 md:gap-y-8 md:gap-site">
         <TransitionGroup name="filter">
           <template v-for="component in blok.items" :key="component._uid">
             <StoryblokComponent

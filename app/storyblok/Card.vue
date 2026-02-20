@@ -14,11 +14,11 @@ const justify = useFlex(props.blok.align, props.blok.justify)
     :to="blok.link?.cached_url ? internalLink(blok.link) : null"
     :class="['link-to-underlined flex', justify, { 'pb-8 md:pb-0': blok.bottom_padding }]"
     :data-keyword="blok.filter_keyword">
-      <div :class="['grid gap-4 w-full', { 'md:w-[50%]': blok.mini }]">
+      <div :class="['flex flex-col gap-3 w-full', { 'md:w-[75%]': blok.mini }]">
         <UtilsMedia
           :media="blok.media"
           :width="800"
-          :class="['w-full h-50 object-cover', { 'md:h-100': blok.fixed_height && !blok.mini, 'md:h-auto': !blok.fixed_height }]"
+          :class="['w-full h-60 object-cover', { 'md:h-100': blok.fixed_height && !blok.mini, 'md:h-auto': !blok.fixed_height }]"
         />
         <div
           :class="[
@@ -31,7 +31,7 @@ const justify = useFlex(props.blok.align, props.blok.justify)
             <UtilsRichText :content="blok.heading" />
           </h2>
           <UtilsRichText v-if="hasRichText(blok.text)" :content="blok.text" class="hidden md:block text-xs md:text-base" />
-          <span v-if="blok.cta" class="text-xs md:text-base link">
+          <span v-if="blok.cta" class="hidden md:block text-xs md:text-base link">
             {{ blok.cta }} →
           </span>
         </div>
