@@ -4,6 +4,24 @@ const spacing = useSpacing(props.blok)
 const display = useDisplay(props.blok)
 const background = useBackgroundColor(props.blok.background)
 const { internalLink } = useLinks()
+
+const reviews = ref(null)
+let script = null
+const widgetId = props.blok.widgetId || '424a25c652da5300584637d3772'
+
+onMounted(() => {
+  script = document.createElement('script')
+  script.src = 'https://cdn.trustindex.io/loader.js?' + widgetId
+  script.defer = true
+  script.async = true
+  reviews.value.appendChild(script)
+})
+
+onBeforeUnmount(() => {
+  if (script) {
+    reviews.value.removeChild(script)
+  }
+})
 </script>
 
 <template>
@@ -23,15 +41,9 @@ const { internalLink } = useLinks()
         {{ blok.rating }}
       </div>
     </div>
-    <ul class="flex gap-site lg:gap-8 overflow-x-auto -mx-site lg:-mx-24 px-site lg:px-24">
-      <li
-        v-for="review in blok.reviews"
-        :key="review._uid"
-        class="bg-white aspect-[1.88] w-[75vw] lg:w-[calc(33vw-var(--spacing)*21)] h-full shrink-0"
-      >
-      
-      </li>
-    </ul>
+    <div class="max-w-[1750px] mx-auto">
+      <div ref="reviews" />
+    </div>
     <div class="grid lg:grid-cols-2 gap-site mt-site lg:mt-16 -mb-2 lg:-mb-10">
       <div class="hidden lg:flex gap-4 items-end">
         <UtilsRichText
