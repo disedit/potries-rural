@@ -3,5 +3,5 @@ defineProps({ blok: Object })
 </script>
 
 <template>
-  <div v-editable="blok" v-html="blok.html" />
+  <div v-editable="blok" v-html="blok.html" class="embed" />
 </template>

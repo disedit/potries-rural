@@ -118,4 +118,8 @@
       padding-inline: var(--spacing-site);
     }
   }
+
+  .embed iframe {
+    width: 100% !important;
+  }
 }
