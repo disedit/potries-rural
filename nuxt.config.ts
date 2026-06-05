@@ -26,10 +26,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  image: process.env.NUXT_PUBLIC_NODE_ENV === 'production' ? {
-    provider: 'netlify',
-    domains: ['a.storyblok.com']
-  } : {
+  image: {
     provider: 'storyblok',
     storyblok: {
       baseURL: 'https://a.storyblok.com'
