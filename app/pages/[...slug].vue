@@ -7,7 +7,7 @@ const global = settings?.value?.data?.story?.content
 const route = useRoute()
 
 // Canonicalize to non-trailing-slash URLs so direct loads don't create invalid slugs.
-if (route.path.length > 1 && route.path.endsWith('/')) {
+if (route.path.length > 1 && route.path.endsWith('/') && !route.path.includes('experiencias')) {
   const canonicalPath = route.path.replace(/\/+$/, '')
   await navigateTo(
     {
