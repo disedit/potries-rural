@@ -4,8 +4,31 @@ const settings = await useSettings()
 const global = settings?.value?.data?.story?.content
 
 /* Load page */
-const { slug } = useRoute().params
-const path = slug && slug.length > 0 && slug[0] ? slug.join('/') : 'home'
+const route = useRoute()
+
+// Canonicalize to non-trailing-slash URLs so direct loads don't create invalid slugs.
+if (route.path.length > 1 && route.path.endsWith('/')) {
+  const canonicalPath = route.path.replace(/\/+$/, '')
+  await navigateTo(
+    {
+      path: canonicalPath,
+      query: route.query,
+      hash: route.hash,
+    },
+    {
+      redirectCode: 301,
+      replace: true,
+    }
+  )
+}
+
+const slugParam = route.params.slug
+const slug = Array.isArray(slugParam)
+  ? slugParam.filter(Boolean)
+  : slugParam
+    ? [slugParam]
+    : []
+const path = slug.length > 0 ? slug.join('/') : 'home'
 const version = useEnvironment()
 const { story } = await useAsyncStoryblok(path, { api: { version } })
 const page = story?.value?.content
