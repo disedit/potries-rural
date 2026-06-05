@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps({
   media: { type: Object, required: true },
-  width: { type: Number, default: null }
+  width: { type: Number, default: 1000 }
 })
 
 const emit = defineEmits(['loaded'])
@@ -18,7 +18,7 @@ const isVideo = props.media.filename.endsWith('mp4')
     @loadeddata="emit('loaded')" />
   <NuxtImg
     v-else
-    :src="media.filename"
+    :src="media.filename + '/m/' + width + 'x0'"
     :width="width"
     :alt="media.alt"
     preload
