@@ -7,6 +7,9 @@ const props = defineProps({
 const emit = defineEmits(['loaded'])
 
 const isVideo = props.media.filename.endsWith('mp4')
+
+const config = useRuntimeConfig()
+const imageProvider = config.public.imageProvider
 </script>
 
 <template>
@@ -18,7 +21,7 @@ const isVideo = props.media.filename.endsWith('mp4')
     @loadeddata="emit('loaded')" />
   <NuxtImg
     v-else
-    :src="media.filename + '/m/' + width + 'x0'"
+    :src="imageProvider !== 'storyblok' ? `${media.filename}/m/${width*2}x0` : media.filename"
     :width="width"
     :alt="media.alt"
     preload

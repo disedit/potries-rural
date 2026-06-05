@@ -14,11 +14,15 @@ onMounted(() => {
   script.src = 'https://cdn.trustindex.io/loader.js?' + widgetId
   script.defer = true
   script.async = true
-  reviews.value.appendChild(script)
+  nextTick(() => {
+    if (reviews.value) {
+      reviews.value.appendChild(script)
+    }
+  })
 })
 
 onBeforeUnmount(() => {
-  if (script) {
+  if (script && reviews.value.contains(script)) {
     reviews.value.removeChild(script)
   }
 })
@@ -42,7 +46,9 @@ onBeforeUnmount(() => {
       </div>
     </div>
     <div class="max-w-[1750px] mx-auto">
-      <div ref="reviews" />
+      <ClientOnly>
+        <div ref="reviews" />
+      </ClientOnly>
     </div>
     <div class="grid lg:grid-cols-2 gap-site mt-site lg:mt-16 -mb-2 lg:-mb-10">
       <div class="hidden lg:flex gap-4 items-end">
