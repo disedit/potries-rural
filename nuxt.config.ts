@@ -27,9 +27,13 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'storyblok',
+    provider: process.env.IMAGE_PROVIDER || 'storyblok',
     storyblok: {
       baseURL: 'https://a.storyblok.com'
-    }
+    },
+    cloudflare: {
+      baseURL: 'https://potriesrural.com'
+    },
+    domains: ['a.storyblok.com', 'potriesrural.com']
   },
 })
