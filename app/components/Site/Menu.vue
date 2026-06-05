@@ -155,7 +155,9 @@
                 <IconsPhone />
               </a>
             </div>
-            <div class="ms-auto gtranslate_wrapper" />
+            <ClientOnly>
+              <div class="ms-auto gtranslate_wrapper" />
+            </ClientOnly>
           </div>
         </div>
       </aside>
