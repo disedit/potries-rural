@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseUrl: 'https://agenciaby.com',
+      baseUrl: 'https://potriesrural.com',
       environment: 'preview',
       imageProvider: process.env.IMAGE_PROVIDER || 'storyblok',
     }
